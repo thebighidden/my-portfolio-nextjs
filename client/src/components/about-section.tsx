@@ -1,9 +1,12 @@
 import { motion } from "framer-motion";
-import { Download, Coffee, GraduationCap, Calendar } from "lucide-react";
+import { Download, Coffee, GraduationCap, Calendar, Briefcase } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { useLanguage } from "@/components/language-provider";
 
 export default function AboutSection() {
+  const { t } = useLanguage();
+  
   const stats = [
     { label: "Experience", value: "3+ Years" },
     { label: "Projects Completed", value: "25+" },
@@ -24,6 +27,37 @@ export default function AboutSection() {
       element.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   };
+
+  const workExperience = [
+    {
+      period: "August 2024 - Present",
+      position: "Front-end Developer",
+      company: "SCIENTIAE, RABAT",
+      description: "Developed responsive web applications using Vue.js and Nuxt.js, ensuring a seamless user experience. Collaborated with cross-functional teams to integrate RESTful APIs and deliver scalable solutions.",
+      technologies: ["Vue.js", "Nuxt.js", "RESTful APIs", "JavaScript"]
+    },
+    {
+      period: "December 2022 - August 2024",
+      position: "Full-stack Developer", 
+      company: "Dieze Center, RABAT",
+      description: "Designed and developed responsive web applications using React.js, Next.js for the front-end and Node.js with Express.js for the back-end. Optimized application performance, reducing load times by 30%.",
+      technologies: ["React.js", "Next.js", "Node.js", "Express.js"]
+    },
+    {
+      period: "January 2022 - August 2022",
+      position: "Full-stack Developer (Intern)",
+      company: "Major Media, Agadir", 
+      description: "Led the development of key front-end features for client projects using React.js and WordPress. Enhanced website performance and user engagement by improving UX/UI design, utilizing Figma and Canva for prototyping.",
+      technologies: ["React.js", "WordPress", "Figma", "Canva", "UX/UI"]
+    },
+    {
+      period: "May 2021 - September 2021",
+      position: "Full-stack Developer (Intern)",
+      company: "Akwa Group, Casablanca",
+      description: "Designed and implemented key software features using ASP.NET and React.js. Delivered solutions that enhanced user experience and internal product functionality.",
+      technologies: ["ASP.NET", "React.js", "Software Development"]
+    }
+  ];
 
   const educationTimeline = [
     {
@@ -161,6 +195,86 @@ export default function AboutSection() {
             </div>
           </motion.div>
         </div>
+
+        {/* Work Experience Timeline Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          viewport={{ once: true }}
+          className="mt-20"
+        >
+          <div className="text-center mb-12">
+            <h3 className="text-3xl font-bold mb-4 flex items-center justify-center gap-3">
+              <Briefcase className="text-primary" />
+              Work Experience
+            </h3>
+            <p className="text-lg text-muted-foreground">
+              My professional journey in software development and technology
+            </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto">
+            <div className="relative">
+              {/* Timeline line */}
+              <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary to-secondary md:left-1/2 md:transform md:-translate-x-1/2"></div>
+              
+              <div className="space-y-12">
+                {workExperience.map((job, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, x: index % 2 === 0 ? 30 : -30 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6, delay: index * 0.2 }}
+                    viewport={{ once: true }}
+                    className={`relative ${index % 2 === 0 ? 'md:ml-auto md:w-1/2 md:pl-12' : 'md:w-1/2 md:pr-12'}`}
+                  >
+                    {/* Timeline dot */}
+                    <div 
+                      className="absolute w-4 h-4 bg-primary rounded-full top-6 md:top-6"
+                      style={{ 
+                        left: index % 2 === 0 ? 'auto' : '1.5rem',
+                        right: index % 2 === 0 ? 'calc(50% - 0.5rem)' : 'auto',
+                        [index % 2 === 0 ? 'left' : 'right']: index % 2 === 0 ? 'auto' : 'auto'
+                      }}
+                    >
+                    </div>
+
+                    <Card className="bg-muted/50 hover:bg-muted/80 transition-all duration-300 ml-12 md:ml-0">
+                      <CardContent className="p-6">
+                        <div className="flex items-center gap-2 mb-3">
+                          <Calendar className="text-primary w-4 h-4" />
+                          <span className="text-sm font-semibold text-primary">
+                            {job.period}
+                          </span>
+                        </div>
+                        <h4 className="font-bold text-lg mb-1 leading-tight">
+                          {job.position}
+                        </h4>
+                        <p className="text-muted-foreground font-medium mb-3">
+                          {job.company}
+                        </p>
+                        <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
+                          {job.description}
+                        </p>
+                        <div className="flex flex-wrap gap-2">
+                          {job.technologies.map((tech, techIndex) => (
+                            <span 
+                              key={techIndex}
+                              className="px-2 py-1 bg-primary/10 text-primary text-xs rounded-full font-medium"
+                            >
+                              {tech}
+                            </span>
+                          ))}
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </motion.div>
 
         {/* Education Timeline Section */}
         <motion.div
