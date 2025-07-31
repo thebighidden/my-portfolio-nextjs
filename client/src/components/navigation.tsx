@@ -1,19 +1,21 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Moon, Sun, Menu, X } from "lucide-react";
+import { Moon, Sun, Menu, X, Languages } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "@/components/theme-provider";
+import { useLanguage } from "@/components/language-provider";
 
 export default function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
+  const { language, toggleLanguage, t } = useLanguage();
 
   const navLinks = [
-    { href: "#home", label: "Home" },
-    { href: "#projects", label: "Projects" },
-    { href: "#skills", label: "Skills" },
-    { href: "#about", label: "About" },
-    { href: "#contact", label: "Contact" },
+    { href: "#home", label: t("home") },
+    { href: "#projects", label: t("projects") },
+    { href: "#skills", label: t("skills") },
+    { href: "#about", label: t("about") },
+    { href: "#contact", label: t("contact") },
   ];
 
   const handleNavClick = (href: string) => {
@@ -49,6 +51,16 @@ export default function Navigation() {
           </div>
 
           <div className="flex items-center space-x-4">
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={toggleLanguage}
+              className="rounded-lg"
+            >
+              <Languages className="h-4 w-4" />
+              <span className="ml-1 text-xs font-medium">{language.toUpperCase()}</span>
+            </Button>
+
             <Button
               variant="ghost"
               size="icon"
