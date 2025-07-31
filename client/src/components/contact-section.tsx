@@ -79,17 +79,17 @@ export default function ContactSection() {
     {
       icon: Mail,
       title: "Email",
-      value: "alex.johnson@email.com",
+      value: "soufian.sb88@gmail.com",
     },
     {
       icon: Phone,
       title: "Phone",
-      value: "+1 (555) 123-4567",
+      value: "+212 604774298",
     },
     {
       icon: MapPin,
       title: "Location",
-      value: "San Francisco, CA",
+      value: "Rabat, Morocco",
     },
   ];
 

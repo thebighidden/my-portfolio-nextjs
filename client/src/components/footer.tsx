@@ -46,10 +46,10 @@ export default function Footer() {
         >
           <div>
             <div className="flex items-center mb-4">
-              <span className="text-3xl font-bold gradient-text">AJ</span>
+              <span className="text-3xl font-bold gradient-text">SB</span>
             </div>
             <p className="text-gray-400 mb-4">
-              Full Stack Developer passionate about creating innovative digital experiences.
+              Software Engineer passionate about Front-end Development with expertise in React.js and modern web technologies.
             </p>
             <div className="flex space-x-4">
               {socialLinks.map((social, index) => (
@@ -102,7 +102,7 @@ export default function Footer() {
           className="border-t border-gray-800 mt-8 pt-8 text-center"
         >
           <p className="text-gray-400">
-            © {currentYear} Alex Johnson. All rights reserved. Built with ❤️ using React & Tailwind CSS.
+            © {currentYear} Soufiane Bighidene. All rights reserved. Built with ❤️ using React & Tailwind CSS.
           </p>
         </motion.div>
       </div>

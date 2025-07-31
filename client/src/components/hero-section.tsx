@@ -13,7 +13,7 @@ export default function HeroSection() {
     // Create a dummy CV download
     const link = document.createElement('a');
     link.href = '#';
-    link.download = 'alex-johnson-cv.pdf';
+    link.download = 'soufiane-bighidene-cv.pdf';
     link.click();
   };
 
@@ -50,7 +50,7 @@ export default function HeroSection() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-5xl md:text-7xl font-bold mb-4"
             >
-              <span className="gradient-text">Alex Johnson</span>
+              <span className="gradient-text">Soufiane Bighidene</span>
             </motion.h1>
             
             <motion.p
@@ -59,7 +59,7 @@ export default function HeroSection() {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="text-xl md:text-2xl text-muted-foreground mb-6"
             >
-              Full Stack Developer & UI/UX Designer
+              Software Engineer & Full Stack Developer
             </motion.p>
             
             <motion.p
@@ -68,8 +68,9 @@ export default function HeroSection() {
               transition={{ duration: 0.6, delay: 0.6 }}
               className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8 leading-relaxed"
             >
-              I craft exceptional digital experiences through innovative web applications, 
-              combining cutting-edge technology with intuitive design to bring ideas to life.
+              Passionate about Front-end Development with 3+ years of experience in React.js, 
+              JavaScript, and modern web technologies. Dedicated to creating seamless user 
+              experiences and delivering high-performance solutions.
             </motion.p>
           </div>
 
