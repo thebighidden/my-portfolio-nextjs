@@ -1,12 +1,20 @@
 import { motion } from "framer-motion";
-import { Download, Coffee, GraduationCap, Calendar, Briefcase } from "lucide-react";
+import {
+  Download,
+  Coffee,
+  GraduationCap,
+  Calendar,
+  Briefcase,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { useLanguage } from "@/components/language-provider";
+// import TextType from "./TextType";
+import BlurText from "./BlurText";
 
 export default function AboutSection() {
   const { t } = useLanguage();
-  
+
   const stats = [
     { label: "Experience", value: "3+ Years" },
     { label: "Projects Completed", value: "25+" },
@@ -15,14 +23,14 @@ export default function AboutSection() {
   ];
 
   const handleDownloadCV = () => {
-    const link = document.createElement('a');
-    link.href = '#';
-    link.download = 'soufiane-bighidene-cv.pdf';
+    const link = document.createElement("a");
+    link.href = "#";
+    link.download = "soufiane-bighidene-cv.pdf";
     link.click();
   };
 
   const handleChatClick = () => {
-    const element = document.querySelector('#contact');
+    const element = document.querySelector("#contact");
     if (element) {
       element.scrollIntoView({ behavior: "smooth", block: "start" });
     }
@@ -33,50 +41,57 @@ export default function AboutSection() {
       period: "August 2024 - Present",
       position: "Front-end Developer",
       company: "SCIENTIAE, RABAT",
-      description: "Developed responsive web applications using Vue.js and Nuxt.js, ensuring a seamless user experience. Collaborated with cross-functional teams to integrate RESTful APIs and deliver scalable solutions.",
-      technologies: ["Vue.js", "Nuxt.js", "RESTful APIs", "JavaScript"]
+      description:
+        "Developed responsive web applications using Vue.js and Nuxt.js, ensuring a seamless user experience. Collaborated with cross-functional teams to integrate RESTful APIs and deliver scalable solutions.",
+      technologies: ["Vue.js", "Nuxt.js", "RESTful APIs", "JavaScript"],
     },
     {
       period: "December 2022 - August 2024",
-      position: "Full-stack Developer", 
+      position: "Full-stack Developer",
       company: "Dieze Center, RABAT",
-      description: "Designed and developed responsive web applications using React.js, Next.js for the front-end and Node.js with Express.js for the back-end. Optimized application performance, reducing load times by 30%.",
-      technologies: ["React.js", "Next.js", "Node.js", "Express.js"]
+      description:
+        "Designed and developed responsive web applications using React.js, Next.js for the front-end and Node.js with Express.js for the back-end. Optimized application performance, reducing load times by 30%.",
+      technologies: ["React.js", "Next.js", "Node.js", "Express.js"],
     },
     {
       period: "January 2022 - August 2022",
       position: "Full-stack Developer (Intern)",
-      company: "Major Media, Agadir", 
-      description: "Led the development of key front-end features for client projects using React.js and WordPress. Enhanced website performance and user engagement by improving UX/UI design, utilizing Figma and Canva for prototyping.",
-      technologies: ["React.js", "WordPress", "Figma", "Canva", "UX/UI"]
+      company: "Major Media, Agadir",
+      description:
+        "Led the development of key front-end features for client projects using React.js and WordPress. Enhanced website performance and user engagement by improving UX/UI design, utilizing Figma and Canva for prototyping.",
+      technologies: ["React.js", "WordPress", "Figma", "Canva", "UX/UI"],
     },
     {
       period: "May 2021 - September 2021",
       position: "Full-stack Developer (Intern)",
       company: "Akwa Group, Casablanca",
-      description: "Designed and implemented key software features using ASP.NET and React.js. Delivered solutions that enhanced user experience and internal product functionality.",
-      technologies: ["ASP.NET", "React.js", "Software Development"]
-    }
+      description:
+        "Designed and implemented key software features using ASP.NET and React.js. Delivered solutions that enhanced user experience and internal product functionality.",
+      technologies: ["ASP.NET", "React.js", "Software Development"],
+    },
   ];
 
   const educationTimeline = [
     {
       period: "2018 - 2022",
-      degree: "Engineering Degree in Information and Communication Technology and Embedded Systems (TICSE INFO)",
+      degree:
+        "Engineering Degree in Information and Communication Technology and Embedded Systems (TICSE INFO)",
       institution: "Private University of Marrakech (UPM)",
-      description: "Specialized in modern technology solutions and embedded systems"
+      description:
+        "Specialized in modern technology solutions and embedded systems",
     },
     {
-      period: "2016 - 2018", 
+      period: "2016 - 2018",
       degree: "Specialized Diploma in Software Development",
       institution: "ISTA TADDART, AGADIR",
-      description: "Foundation in software development principles and programming"
-    }
+      description:
+        "Foundation in software development principles and programming",
+    },
   ];
 
   return (
     <section id="about" className="py-20 bg-muted/50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="  mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -90,7 +105,7 @@ export default function AboutSection() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 items-center">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -98,23 +113,38 @@ export default function AboutSection() {
             viewport={{ once: true }}
             className="order-2 lg:order-1"
           >
-            <div className="space-y-6">
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                Hi! I'm Soufiane, a passionate Software Engineer with 3+ years of experience in 
-                Front-end Development. I specialize in React.js, JavaScript, Vue.js, and Tailwind CSS, 
-                creating seamless user experiences and high-performance solutions.
+            <div className="space-y-6 ">
+              {/* <p className="text-lg text-muted-foreground leading-relaxed">
+                Hi! I'm Soufiane, a passionate Software Engineer with 3+ years
+                of experience in Front-end Development. I specialize in
+                React.js, JavaScript, Vue.js, and Tailwind CSS, creating
+                seamless user experiences and high-performance solutions.
               </p>
-              
+
               <p className="text-lg text-muted-foreground leading-relaxed">
-                My journey began with a specialized diploma in Software Development, followed by an 
-                Engineering Degree in Information and Communication Technology. I've worked with companies 
-                like SCIENTIAE, Dieze Center, and Major Media, delivering scalable web applications.
+                My journey began with a specialized diploma in Software
+                Development, followed by an Engineering Degree in Information
+                and Communication Technology. I've worked with companies like
+                SCIENTIAE, Dieze Center, and Major Media, delivering scalable
+                web applications.
               </p>
-              
+
               <p className="text-lg text-muted-foreground leading-relaxed">
-                I'm fluent in Arabic, French, and English, and I'm open to relocation across EU and Canada. 
-                Available for visa sponsorship and always excited about new opportunities in tech.
-              </p>
+                I'm fluent in Arabic, French, and English, and I'm open to
+                relocation across EU and Canada. Available for visa sponsorship
+                and always excited about new opportunities in tech.
+              </p> */}
+
+              <BlurText
+                text=" Hi! I'm Soufiane, a passionate Software Engineer with 3+ years
+                of experience in Front-end Development. I specialize in
+                React.js, JavaScript, Vue.js, and Tailwind CSS, creating
+                seamless user experiences and high-performance solutions."
+                delay={50}
+                animateBy="words"
+                direction="top"
+                className="text-2xl"
+              />
 
               <div className="grid grid-cols-2 gap-6 pt-6">
                 {stats.map((stat, index) => (
@@ -125,7 +155,9 @@ export default function AboutSection() {
                     transition={{ duration: 0.6, delay: index * 0.1 }}
                     viewport={{ once: true }}
                   >
-                    <h4 className="font-semibold text-primary mb-2">{stat.label}</h4>
+                    <h4 className="font-semibold text-primary mb-2">
+                      {stat.label}
+                    </h4>
                     <p className="text-2xl font-bold">{stat.value}</p>
                   </motion.div>
                 ))}
@@ -140,7 +172,7 @@ export default function AboutSection() {
               >
                 <Button
                   onClick={handleDownloadCV}
-                  className="px-6 py-3 bg-primary hover:bg-primary/90 text-primary-foreground rounded-xl font-semibold transition-all duration-300 transform hover:scale-105"
+                  className="px-6 py-3 bg-primary hover:bg-primary/90 text-primary-foreground rounded-xl font-semibold transition-all duration-300 transform "
                 >
                   <Download className="mr-2 h-4 w-4" />
                   Download CV
@@ -164,35 +196,7 @@ export default function AboutSection() {
             viewport={{ once: true }}
             className="order-1 lg:order-2"
           >
-            <div className="relative">
-              <img 
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=800" 
-                alt="Soufiane Bighidene - Software Engineer" 
-                className="rounded-2xl shadow-2xl w-full max-w-md mx-auto" 
-              />
-              
-              <motion.div
-                initial={{ opacity: 0, rotate: -3 }}
-                whileInView={{ opacity: 1, rotate: 3 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                viewport={{ once: true }}
-                className="absolute -top-4 -right-4 bg-primary text-primary-foreground px-4 py-2 rounded-xl transform rotate-3 shadow-lg"
-              >
-                <i className="fas fa-code mr-2"></i>Coding
-              </motion.div>
-              
-              <motion.div
-                initial={{ opacity: 0, rotate: 3 }}
-                whileInView={{ opacity: 1, rotate: -3 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                viewport={{ once: true }}
-                className="absolute -bottom-4 -left-4 bg-secondary text-secondary-foreground px-4 py-2 rounded-xl transform -rotate-3 shadow-lg"
-              >
-                <i className="fas fa-palette mr-2"></i>Frontend
-              </motion.div>
-              
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-2xl -z-10 transform translate-x-6 translate-y-6"></div>
-            </div>
+            {/* set here a earth image by marwane  */}
           </motion.div>
         </div>
 
@@ -218,7 +222,7 @@ export default function AboutSection() {
             <div className="relative">
               {/* Timeline line */}
               <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary to-secondary md:left-1/2 md:transform md:-translate-x-1/2"></div>
-              
+
               <div className="space-y-12">
                 {workExperience.map((job, index) => (
                   <motion.div
@@ -227,18 +231,22 @@ export default function AboutSection() {
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: index * 0.2 }}
                     viewport={{ once: true }}
-                    className={`relative ${index % 2 === 0 ? 'md:ml-auto md:w-1/2 md:pl-12' : 'md:w-1/2 md:pr-12'}`}
+                    className={`relative ${
+                      index % 2 === 0
+                        ? "md:ml-auto md:w-1/2 md:pl-12"
+                        : "md:w-1/2 md:pr-12"
+                    }`}
                   >
                     {/* Timeline dot */}
-                    <div 
+                    <div
                       className="absolute w-4 h-4 bg-primary rounded-full top-6 md:top-6"
-                      style={{ 
-                        left: index % 2 === 0 ? 'auto' : '1.5rem',
-                        right: index % 2 === 0 ? 'calc(50% - 0.5rem)' : 'auto',
-                        [index % 2 === 0 ? 'left' : 'right']: index % 2 === 0 ? 'auto' : 'auto'
+                      style={{
+                        left: index % 2 === 0 ? "auto" : "1.5rem",
+                        right: index % 2 === 0 ? "calc(50% - 0.5rem)" : "auto",
+                        [index % 2 === 0 ? "left" : "right"]:
+                          index % 2 === 0 ? "auto" : "auto",
                       }}
-                    >
-                    </div>
+                    ></div>
 
                     <Card className="bg-muted/50 hover:bg-muted/80 transition-all duration-300 ml-12 md:ml-0">
                       <CardContent className="p-6">
@@ -259,7 +267,7 @@ export default function AboutSection() {
                         </p>
                         <div className="flex flex-wrap gap-2">
                           {job.technologies.map((tech, techIndex) => (
-                            <span 
+                            <span
                               key={techIndex}
                               className="px-2 py-1 bg-primary/10 text-primary text-xs rounded-full font-medium"
                             >
@@ -298,7 +306,7 @@ export default function AboutSection() {
             <div className="relative">
               {/* Timeline line */}
               <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary to-secondary md:left-1/2 md:transform md:-translate-x-1/2"></div>
-              
+
               <div className="space-y-12">
                 {educationTimeline.map((education, index) => (
                   <motion.div
@@ -307,16 +315,24 @@ export default function AboutSection() {
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: index * 0.2 }}
                     viewport={{ once: true }}
-                    className={`relative ${index === 0 ? 'md:ml-auto md:w-1/2 md:pl-12' : 'md:w-1/2 md:pr-12'}`}
+                    className={`relative ${
+                      index === 0
+                        ? "md:ml-auto md:w-1/2 md:pl-12"
+                        : "md:w-1/2 md:pr-12"
+                    }`}
                   >
                     {/* Timeline dot */}
-                    <div className="absolute w-4 h-4 bg-primary rounded-full left-6 top-6 md:left-auto md:right-auto md:top-6" 
-                         style={{ 
-                           left: index === 0 ? 'auto' : '1.5rem',
-                           right: index === 0 ? 'auto' : 'auto',
-                           [index === 0 ? 'right' : 'left']: index === 0 ? 'calc(50% - 0.5rem)' : 'calc(50% - 0.5rem)'
-                         }}>
-                    </div>
+                    <div
+                      className="absolute w-4 h-4 bg-primary rounded-full left-6 top-6 md:left-auto md:right-auto md:top-6"
+                      style={{
+                        left: index === 0 ? "auto" : "1.5rem",
+                        right: index === 0 ? "auto" : "auto",
+                        [index === 0 ? "right" : "left"]:
+                          index === 0
+                            ? "calc(50% - 0.5rem)"
+                            : "calc(50% - 0.5rem)",
+                      }}
+                    ></div>
 
                     <Card className="bg-muted/50 hover:bg-muted/80 transition-all duration-300 ml-12 md:ml-0">
                       <CardContent className="p-6">

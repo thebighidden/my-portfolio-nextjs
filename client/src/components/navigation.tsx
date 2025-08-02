@@ -1,14 +1,21 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Moon, Sun, Menu, X, Languages } from "lucide-react";
+import { Moon, Sun, Menu, X, Languages, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { useTheme } from "@/components/theme-provider";
 import { useLanguage } from "@/components/language-provider";
 
 export default function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
-  const { language, toggleLanguage, t } = useLanguage();
+  const { language, setLanguage, t } = useLanguage();
 
   const navLinks = [
     { href: "#home", label: t("home") },
@@ -35,9 +42,11 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           <div className="flex items-center">
-            <span className="text-2xl font-bold gradient-text">SB</span>
+            <span className="text-lg font-bold gradient-text">
+              THEBIGHIDDEN
+            </span>
           </div>
-          
+
           <div className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
               <button
@@ -50,18 +59,19 @@ export default function Navigation() {
             ))}
           </div>
 
-          <div className="flex items-center space-x-4">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={toggleLanguage}
-              className="rounded-lg"
-            >
-              <Languages className="h-4 w-4" />
-              <span className="ml-1 text-xs font-medium">{language.toUpperCase()}</span>
-            </Button>
+          <div className="flex items-center space-x-4 px-4">
+            <Select value={language} onValueChange={setLanguage}>
+              <SelectTrigger className="w-20 h-9 rounded-lg bg-gradient-to-r from-indigo-300 via-white/90 to-rose-300 border-0 text-xs font-medium">
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="en">EN</SelectItem>
+                <SelectItem value="fr">FR</SelectItem>
+                <SelectItem value="ar">AR</SelectItem>
+              </SelectContent>
+            </Select>
 
-            <Button
+            {/* <Button
               variant="ghost"
               size="icon"
               onClick={toggleTheme}
@@ -72,8 +82,8 @@ export default function Navigation() {
               ) : (
                 <Moon className="h-5 w-5" />
               )}
-            </Button>
-            
+            </Button> */}
+
             <Button
               variant="ghost"
               size="icon"
@@ -88,7 +98,7 @@ export default function Navigation() {
             </Button>
           </div>
         </div>
-        
+
         {isMobileMenuOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}

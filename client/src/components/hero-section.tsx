@@ -3,6 +3,8 @@ import { Download, Mail, Circle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/components/language-provider";
 import { cn } from "@/lib/utils";
+import TextType from "./TextType";
+import BlurText from "./BlurText";
 
 function ElegantShape({
   className,
@@ -74,14 +76,14 @@ export default function HeroSection() {
   const { t } = useLanguage();
 
   const handleDownloadCV = () => {
-    const link = document.createElement('a');
-    link.href = '#';
-    link.download = 'soufiane-bighidene-cv.pdf';
+    const link = document.createElement("a");
+    link.href = "#";
+    link.download = "soufiane-bighidene-cv.pdf";
     link.click();
   };
 
   const handleContactClick = () => {
-    const element = document.querySelector('#contact');
+    const element = document.querySelector("#contact");
     if (element) {
       element.scrollIntoView({ behavior: "smooth", block: "start" });
     }
@@ -101,7 +103,10 @@ export default function HeroSection() {
   };
 
   return (
-    <section id="home" className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-[#030303]">
+    <section
+      id="home"
+      className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-[#030303]"
+    >
       <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/[0.05] via-transparent to-rose-500/[0.05] blur-3xl" />
 
       <div className="absolute inset-0 overflow-hidden">
@@ -151,14 +156,17 @@ export default function HeroSection() {
         />
       </div>
 
+      {/* Main content container with proper spacing */}
       <div className="relative z-10 container mx-auto px-4 md:px-6">
-        <div className="max-w-3xl mx-auto text-center">
+        <div className="max-w-3xl mx-auto text-center space-y-4 md:space-y-4">
+          
+          {/* Badge/Status indicator */}
           <motion.div
             custom={0}
             variants={fadeUpVariants}
             initial="hidden"
             animate="visible"
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.03] border border-white/[0.08] mb-8 md:mb-12"
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.03] border border-white/[0.08]"
           >
             <Circle className="h-2 w-2 fill-rose-500/80" />
             <span className="text-sm text-white/60 tracking-wide">
@@ -166,44 +174,51 @@ export default function HeroSection() {
             </span>
           </motion.div>
 
+          {/* Main title with typing animation */}
           <motion.div
             custom={1}
             variants={fadeUpVariants}
             initial="hidden"
             animate="visible"
+            className="space-y-4"
           >
-            <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold mb-6 md:mb-8 tracking-tight">
-              <span className="bg-clip-text text-transparent bg-gradient-to-b from-white to-white/80">
-                {t("heroTitle1")}
-              </span>
-              <br />
-              <span
-                className={cn(
-                  "bg-clip-text text-transparent bg-gradient-to-r from-indigo-300 via-white/90 to-rose-300"
-                )}
-              >
-                {t("heroTitle2")}
+            <h1 className="text-4xl sm:text-6xl md:text-6xl font-bold tracking-tight">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-300 via-white/90 to-rose-300">
+                <TextType
+                  text={[t("heroTitle1"), t("heroTitle2")]}
+                  typingSpeed={75}
+                  pauseDuration={1500}
+                  showCursor={true}
+                  cursorCharacter="|"
+                />
               </span>
             </h1>
           </motion.div>
 
+          {/* Description with blur animation */}
           <motion.div
             custom={2}
             variants={fadeUpVariants}
             initial="hidden"
             animate="visible"
+            className="space-y-6"
           >
-            <p className="text-base sm:text-lg md:text-xl text-white/40 mb-8 md:mb-12 leading-relaxed font-light tracking-wide max-w-2xl mx-auto px-4">
-              {t("heroDescription")}
-            </p>
+            <BlurText
+              text={t("heroDescription")}
+              delay={150}
+              animateBy="words"
+              direction="top"
+              className="text-base sm:text-lg md:text-xl text-white/40 leading-relaxed font-light tracking-wide max-w-2xl mx-auto"
+            />
           </motion.div>
 
+          {/* Action buttons */}
           <motion.div
             custom={3}
             variants={fadeUpVariants}
             initial="hidden"
             animate="visible"
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4"
           >
             <Button
               size="lg"
@@ -213,7 +228,7 @@ export default function HeroSection() {
               <Download className="mr-2 h-5 w-5" />
               {t("downloadCV")}
             </Button>
-            
+
             <Button
               variant="outline"
               size="lg"

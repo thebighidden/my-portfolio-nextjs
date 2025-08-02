@@ -1,6 +1,6 @@
 import { createContext, useContext, useState } from "react";
 
-type Language = "en" | "fr";
+type Language = "en" | "fr" | "ar";
 
 type LanguageProviderContextType = {
   language: Language;
@@ -156,6 +156,78 @@ const translations = {
     consulting: "Conseil",
     allRightsReserved: "Tous droits réservés. Créé avec ❤️ utilisant React & Tailwind CSS.",
   },
+  ar: {
+    // Navigation
+    home: "الرئيسية",
+    projects: "المشاريع",
+    skills: "المهارات",
+    about: "حول",
+    contact: "اتصل",
+    
+    // Hero Section
+    badge: "مهندس برمجيات",
+    heroTitle1: "سفيان بيغيدن",
+    heroTitle2: "مطور ويب شامل",
+    heroDescription: "شغوف بتطوير الواجهة الأمامية مع أكثر من 3 سنوات من الخبرة في React.js و JavaScript وتقنيات الويب الحديثة. مكرس لإنشاء تجارب مستخدم سلسة وحلول عالية الأداء.",
+    downloadCV: "تحميل السيرة الذاتية",
+    getInTouch: "تواصل معي",
+    
+    // Projects
+    featuredProjects: "المشاريع المميزة",
+    projectsDescription: "مجموعة من المشاريع التي تعرض خبرتي في تطوير الويب الحديث",
+    viewAllProjects: "عرض جميع المشاريع",
+    liveDemo: "عرض مباشر",
+    code: "الكود",
+    
+    // Skills
+    skillsTitle: "المهارات والتقنيات",
+    skillsDescription: "مجموعة أدوات شاملة لبناء تطبيقات الويب الحديثة",
+    proficiencyLevels: "مستويات الكفاءة",
+    frontendDevelopment: "تطوير الواجهة الأمامية",
+    backendDevelopment: "تطوير الخلفية",
+    uiuxDesign: "تصميم واجهة المستخدم",
+    cloudDevops: "السحابة والعمليات",
+    
+    // About
+    aboutTitle: "حولي",
+    aboutDescription: "شغوف بإنشاء تجارب رقمية تحدث فرقاً",
+    experience: "الخبرة",
+    projectsCompleted: "المشاريع المكتملة",
+    companiesWorked: "الشركات التي عملت معها",
+    languages: "اللغات",
+    downloadCVButton: "تحميل السيرة الذاتية",
+    letsChat: "دعنا نتحدث",
+    educationTimeline: "المسار التعليمي",
+    educationDescription: "رحلتي الأكاديمية في التكنولوجيا وتطوير البرمجيات",
+    
+    // Contact
+    contactTitle: "تواصل معي",
+    contactDescription: "مستعد لبدء مشروعك القادم؟ دعنا نبتكر شيئاً مذهلاً معاً",
+    letsConnect: "دعنا نتواصل",
+    connectDescription: "أنا متحمس دائماً لمناقشة الفرص الجديدة والمشاريع المثيرة للاهتمام. لا تتردد في التواصل من خلال أي من هذه القنوات.",
+    email: "البريد الإلكتروني",
+    phone: "الهاتف",
+    location: "الموقع",
+    followMe: "تابعني",
+    firstName: "الاسم الأول",
+    lastName: "اسم العائلة",
+    emailAddress: "عنوان البريد الإلكتروني",
+    subject: "الموضوع",
+    message: "الرسالة",
+    messagePlaceholder: "أخبرني عن مشروعك وكيف يمكنني مساعدتك...",
+    sendMessage: "إرسال الرسالة",
+    sending: "جاري الإرسال...",
+    
+    // Footer
+    footerDescription: "مهندس برمجيات شغوف بتطوير الواجهة الأمامية مع خبرة في React.js وتقنيات الويب الحديثة.",
+    quickLinks: "روابط سريعة",
+    services: "الخدمات",
+    webDevelopment: "تطوير الويب",
+    uiuxDesignService: "تصميم واجهة المستخدم",
+    mobileApps: "تطبيقات الجوال",
+    consulting: "الاستشارات",
+    allRightsReserved: "جميع الحقوق محفوظة. تم البناء بـ ❤️ باستخدام React & Tailwind CSS.",
+  },
 };
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
@@ -167,7 +239,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   });
 
   const toggleLanguage = () => {
-    const newLanguage = language === "en" ? "fr" : "en";
+    const newLanguage = language === "en" ? "fr" : language === "fr" ? "ar" : "en";
     setLanguage(newLanguage);
     localStorage.setItem("language", newLanguage);
   };
